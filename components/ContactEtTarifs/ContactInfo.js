@@ -15,8 +15,8 @@ export default function ContactInfo() {
   return (
     <div className="lg:space-y-2 space-y-1 font-roboto p-5 lg:p-0">
       <p className="font-roboto font-semibold mb-4 md:mt-6 ">
-        "N'hésitez pas à me contacter pour de plus amples informations, je serais ravie
-        de vous renseigner".
+        "N'hésitez pas à me contacter pour de plus amples informations, je
+        serais ravie de vous renseigner".
       </p>
       <p className="flex items-center">
         <HiUserCircle className="lg:mr-2   mr-4 justify-items-center" />
@@ -38,9 +38,6 @@ export default function ContactInfo() {
       <p className="flex items-center ">
         <BsFillTelephoneFill className="lg:mr-2  mr-4 justify-items-center" />
         {infoPersonnel.téléphone}
-      </p>
-      <p style={{textDecoration: "underline"}}>
-        Je peux vous recevoir également les 1ers et 3èmes samedis du mois à Osiris, centre de thérapies holistiques, 28 boulevard de l'artillerie 69007 Lyon.
       </p>
     </div>
   );
