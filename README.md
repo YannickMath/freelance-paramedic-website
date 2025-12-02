@@ -378,36 +378,6 @@ npm audit fix
 - React DOM: 18.3.1
 - Tailwind CSS: 3.2.7
 
-**Note:** All security vulnerabilities have been fixed (0 vulnerabilities).
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **First Contentful Paint**: < 1.5s
-- **Time to Interactive**: < 3.0s
-- **Image Optimization**: WebP format with priority loading
-- **Code Splitting**: Automatic via Next.js
-- **Lazy Loading**: Images below the fold
-
-## 🎯 Mobile Optimization
-
-### Responsive Breakpoints
-
-All components have been tested and optimized for:
-
-- **Smartphone** (< 640px): Custom padding-top values to avoid header overlap
-- **Tablet Portrait** (640px - 767px)
-- **Tablet Landscape** (768px - 1023px)
-- **Desktop** (≥ 1024px)
-
-### Mobile-Specific Adjustments
-
-- **Kinésiologie**: `pt-20 pb-8 md:pt-0 md:pb-24` on carousel container
-- **Contact**: `mt-48 sm:mt-24 lg:mt-32`
-- **Nettoyage Énergétique**: `mt-28 sm:mt-10`
-- **Pourquoi**: `pt-20 sm:pt-24`
-- **Réflexologie**: Image height adjusted for mobile (`h-96` vs `sm:min-h-screen`)
-
 **Built with ❤️ for wellness practitioners who want a professional online presence**
 
 _This template is perfect for kinesiologists, reflexologists, energy healers, massage therapists, naturopaths, and other wellness professionals._
