@@ -1,9 +1,9 @@
 # 🌿 Freelance Paramedic Website - Professional Wellness Practitioner Portfolio
 
-A modern, SEO-optimized, and GDPR-compliant website for freelance wellness practitioners (kinesiologists, reflexologists, energy healers, etc.). Built with Next.js, Tailwind CSS, and following best practices for performance, security, and accessibility.
+A modern, SEO-optimized, and GDPR-compliant website for freelance wellness practitioners (kinesiologists, reflexologists, energy healers, etc.). Built with Next.js 15, React 18, Tailwind CSS, and following best practices for performance, security, and accessibility.
 
-[![Next.js](https://img.shields.io/badge/Next.js-13.2.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.1.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18.3.1-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.2.7-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
@@ -11,10 +11,12 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 
 ### 🎨 Modern Design
 
-- **Responsive Design** - Mobile-first approach with breakpoints for all devices
-- **Custom Animations** - Smooth transitions using Framer Motion
-- **Professional UI** - Clean, elegant design with Tailwind CSS
-- **WebP Images** - Optimized image format for faster loading
+- **Responsive Design** - Mobile-first approach with breakpoints for all devices (sm: 640px, md: 768px, lg: 1024px)
+- **Smooth Animations** - Custom Tailwind animations (fade-in, slide-up, scale-in)
+- **Glassmorphism Effects** - Modern UI with backdrop-blur and semi-transparent cards
+- **Professional Color Palette** - Harmonized primary/secondary/accent colors
+- **WebP Images** - Optimized image format with priority loading and quality settings
+- **Unified Image Styling** - Consistent brightness (0.7) and saturation (1.1) across all pages
 
 ### 🔍 SEO Optimized
 
@@ -29,11 +31,13 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 
 ### 🔒 Security & Privacy
 
-- **Security Headers** - HSTS, X-Frame-Options, CSP, and more
-- **GDPR Compliant** - Cookie consent banner with granular controls
-- **Environment Variables** - All sensitive data in `.env` files
+- **Security Headers** - HSTS, X-Frame-Options, CSP with strict directives
+- **GDPR Compliant** - Cookie consent with 12-month expiration
+- **Form Security** - Input sanitization, rate limiting (30s), email/phone validation
+- **Environment Variables** - All sensitive data in `.env.local` files
 - **No Hardcoded Credentials** - Fully configurable via environment
 - **XSS Protection** - Built-in security measures
+- **0 Vulnerabilities** - All dependencies updated and audited
 
 ### ♿ Accessibility
 
@@ -41,6 +45,7 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 - **Keyboard Navigation** - Full keyboard support
 - **Screen Reader Friendly** - Proper ARIA labels and semantic HTML
 - **Zoom Support** - No viewport restrictions
+- **High Contrast** - Readable text on all backgrounds
 
 ### 📊 Analytics
 
@@ -50,18 +55,20 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 
 ### 📱 Core Pages
 
-- **Home** - Welcome page with hero section
-- **Services** - Detailed service descriptions (Kinesiology, Reflexology, Energy Healing)
-- **About** - Practitioner biography and credentials
-- **Contact & Pricing** - Contact form and service pricing
-- **Legal** - Privacy policy and legal mentions
+- **Home (Accueil)** - Welcome page with hero section and professional quotes
+- **Kinésiologie** - 3-slide carousel explaining kinesiology, muscle testing, session details
+- **Pourquoi** - Modern grid layout with 8 cards showing reasons to consult
+- **Réflexologie Cranio-Sacrée** - Split layout with image and detailed explanation
+- **Nettoyage Énergétique** - Centered card with semi-transparent background
+- **À propos de moi** - Professional biography with optional photo
+- **Contact et Tarifs** - Contact form, pricing, social icons, and footer
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - Node.js 14.0 or higher
-- npm or yarn package manager
+- npm package manager (yarn not supported - npm only)
 
 ### Installation
 
@@ -76,9 +83,9 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 
    ```bash
    npm install
-   # or
-   yarn install
    ```
+
+   **Note:** This project uses npm only. Do not use yarn.
 
 3. **Set up environment variables**
 
@@ -121,8 +128,6 @@ A modern, SEO-optimized, and GDPR-compliant website for freelance wellness pract
 
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
 6. **Open your browser**
@@ -153,9 +158,21 @@ All content is configurable via environment variables and components:
 
 - **Business Info**: Update `.env.local` with your details
 - **Services**: Edit components in `/components/` directory
-- **Images**: Replace images in `/public/` directory
+- **Images**: Replace images in `/public/` directory (use WebP format)
 - **Colors**: Modify `tailwind.config.js` for your brand colors
 - **SEO**: Update `components/SEO.js` and `components/StructuredData.js`
+- **Footer**: Displayed only on Contact page, uses env variables
+
+### Responsive Design Notes
+
+This site uses Tailwind's default breakpoints:
+
+- **Mobile**: < 640px (default)
+- **sm**: ≥ 640px (tablet portrait)
+- **md**: ≥ 768px (tablet landscape)
+- **lg**: ≥ 1024px (desktop)
+
+All pages are optimized for mobile-first with specific padding-top values to account for the fixed header menu.
 
 ### Updating Sitemap
 
@@ -171,16 +188,12 @@ Edit `/public/sitemap.xml` and update:
 
 ```bash
 npm run build
-# or
-yarn build
 ```
 
 ### Start Production Server
 
 ```bash
 npm start
-# or
-yarn start
 ```
 
 ### Deploy to Vercel (Recommended)
@@ -206,72 +219,120 @@ This is a standard Next.js app and can be deployed to:
 
 ```
 freelance-paramedic-website/
-├── components/           # React components
-│   ├── SEO.js           # SEO meta tags component
-│   ├── StructuredData.js # JSON-LD structured data
-│   ├── CookieConsent.js # GDPR cookie consent
-│   ├── Layout.js        # Main layout wrapper
-│   ├── Menu.js          # Navigation menu
-│   └── ...              # Page-specific components
-├── pages/               # Next.js pages (routes)
-│   ├── index.js         # Homepage
-│   ├── Kinesiologie.js  # Kinesiology page
-│   ├── Reflexologie.js  # Reflexology page
-│   ├── ContactsEtTarifs.js # Contact & pricing
-│   ├── _app.js          # Custom App component
-│   └── _document.js     # Custom Document
-├── public/              # Static assets
-│   ├── robots.txt       # Search engine directives
-│   ├── sitemap.xml      # XML sitemap
-│   ├── logo.png         # Site logo
-│   └── *.WebP           # Optimized images
-├── styles/              # CSS files
-│   ├── globals.css      # Global styles
-│   └── *.module.css     # Component-specific styles
-├── .env.example         # Environment variables template
-├── .env.local           # Your local environment (gitignored)
-├── .gitignore           # Git ignore rules
-├── next.config.js       # Next.js configuration
-├── tailwind.config.js   # Tailwind CSS configuration
-└── package.json         # Dependencies
+├── components/              # React components
+│   ├── SEO.js              # SEO meta tags component
+│   ├── StructuredData.js   # JSON-LD structured data
+│   ├── CookieConsent.js    # GDPR cookie consent (12-month expiration)
+│   ├── Layout.js           # Main layout wrapper (menu only)
+│   ├── Menu.js             # Navigation menu (bg-green-50, font-weight: 500)
+│   ├── Footer.js           # Footer (only on Contact page)
+│   ├── Accueil.js          # Homepage
+│   ├── Kinesiologie.js     # Kinesiology page with carousel
+│   ├── Pourquoi.js         # Why consult page (8 cards grid)
+│   ├── Reflexologie.js     # Reflexology page (split layout)
+│   ├── NettoyageEnergetique.js # Energy cleansing page
+│   ├── AproposDeMoi.js     # About page
+│   ├── ContactsEtTarifs.js # Contact & pricing page
+│   └── ContactEtTarifs/    # Contact page components
+│       ├── Contact.js      # Main contact layout
+│       ├── ContactInfo.js  # Contact information
+│       ├── FormContact.js  # Contact form (with security)
+│       ├── Tarifs.js       # Pricing table
+│       └── SocialIcons.js  # Social media icons
+├── pages/                  # Next.js pages (routes)
+│   ├── _app.js            # Custom App component
+│   ├── _document.js       # Custom Document
+│   └── [PageName].js      # Individual page routes
+├── public/                # Static assets
+│   ├── robots.txt         # Search engine directives
+│   ├── sitemap.xml        # XML sitemap
+│   ├── logo.png           # Site logo
+│   └── *.WebP             # Optimized images (brightness: 0.7, saturate: 1.1)
+├── styles/                # CSS files
+│   ├── globals.css        # Global styles with animations
+│   ├── Menu.module.css    # Menu styles
+│   └── Rosace.module.css  # Rosace component styles
+├── .env.example           # Environment variables template
+├── .env.local             # Your local environment (gitignored)
+├── .gitignore             # Git ignore rules (includes yarn.lock, .yarn/)
+├── next.config.js         # Next.js configuration with security headers
+├── tailwind.config.js     # Tailwind CSS configuration (custom colors/animations)
+└── package.json           # Dependencies (npm only)
 ```
 
-## 🎨 Customization Guide
+## 🎨 Design System
 
-### Changing Colors
-
-Edit `tailwind.config.js`:
+### Color Palette
 
 ```javascript
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#your-color",
-        secondary: "#your-color",
-      },
-    },
+colors: {
+  primary: {
+    50: '#f0f9f4',   // Very light green
+    100: '#daf1e4',
+    200: '#b7e4cc',
+    300: '#86d0ac',
+    400: '#55b888',  // Footer gradient start
+    500: '#3a9d6e',
+    600: '#2a7d57',
+    700: '#226447',  // Titles, footer gradient end
+    800: '#1e5039',
+    900: '#1a4230',
   },
-};
-```
-
-### Adding New Pages
-
-1. Create a component in `/components/YourPage.js`
-2. Create a page in `/pages/YourPage.js`
-3. Import and add SEO component
-4. Add to menu in `/components/Menu.js`
-5. Update sitemap in `/public/sitemap.xml`
-
-### Changing Fonts
-
-Update in `tailwind.config.js`:
-
-```javascript
-fontFamily: {
-  'your-font': ['Your Font', 'sans-serif'],
+  // Also includes secondary, accent, and neutral palettes
 }
 ```
+
+### Image Optimization
+
+All background images use:
+
+- `filter: brightness(0.7) saturate(1.1)` (except A propos: 0.95)
+- `quality={75}`
+- `priority` loading for above-the-fold images
+- WebP format for optimal compression
+
+### Typography
+
+- **Menu**: font-weight: 500 (medium)
+- **Titles**: font-weight: 600-700 (semibold-bold)
+- **Body**: font-weight: 400 (regular)
+
+### Animations
+
+- **fade-in**: Opacity transition (0.5s)
+- **slide-up**: Translate Y with opacity (0.5s)
+- **scale-in**: Scale transformation (0.3s)
+- Staggered delays using `animationDelay` inline styles
+
+## 🔐 Security Features
+
+### Security Headers (next.config.js)
+
+```javascript
+headers: {
+  'Content-Security-Policy': '...',  // Strict CSP
+  'X-Frame-Options': 'DENY',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+}
+```
+
+### Form Security (FormContact.js)
+
+- Input sanitization (removes < >)
+- Email format validation
+- Phone number validation (French format)
+- Rate limiting: 1 submission per 30 seconds
+- Loading states
+- Error handling
+
+### Cookie Consent
+
+- 12-month expiration
+- Timestamp storage
+- Granular accept/decline controls
+- GDPR compliant
 
 ## 🔐 Security Best Practices
 
@@ -282,6 +343,7 @@ fontFamily: {
 - Use HTTPS in production
 - Keep dependencies updated (`npm audit`)
 - Review security headers regularly
+- Run `npm audit fix` after updates
 
 ❌ **DON'T:**
 
@@ -289,6 +351,7 @@ fontFamily: {
 - Share API keys publicly
 - Disable security headers
 - Use deprecated packages
+- Mix yarn and npm (npm only!)
 
 ## 📱 Browser Support
 
@@ -298,58 +361,52 @@ fontFamily: {
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Android)
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- Tailwind CSS for the utility-first CSS framework
-- Framer Motion for smooth animations
-- Web3Forms for the contact form service
-- All open-source contributors
-
-## 📞 Support
-
-If you have questions or need help:
-
-1. Check existing [Issues](https://github.com/yourusername/freelance-paramedic-website/issues)
-2. Create a new issue with details
-3. Star ⭐ the repo if you find it useful!
-
 ## 🔄 Updates & Maintenance
 
 ### Updating Dependencies
 
 ```bash
 npm update
-# or
-yarn upgrade
-```
-
-### Security Audits
-
-```bash
 npm audit
 npm audit fix
 ```
+
+### Current Dependencies (Updated)
+
+- Next.js: 15.1.3
+- React: 18.3.1
+- React DOM: 18.3.1
+- Tailwind CSS: 3.2.7
+
+**Note:** All security vulnerabilities have been fixed (0 vulnerabilities).
 
 ## 📊 Performance
 
 - **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
 - **First Contentful Paint**: < 1.5s
 - **Time to Interactive**: < 3.0s
-- **Image Optimization**: WebP format
+- **Image Optimization**: WebP format with priority loading
 - **Code Splitting**: Automatic via Next.js
+- **Lazy Loading**: Images below the fold
 
----
+## 🎯 Mobile Optimization
+
+### Responsive Breakpoints
+
+All components have been tested and optimized for:
+
+- **Smartphone** (< 640px): Custom padding-top values to avoid header overlap
+- **Tablet Portrait** (640px - 767px)
+- **Tablet Landscape** (768px - 1023px)
+- **Desktop** (≥ 1024px)
+
+### Mobile-Specific Adjustments
+
+- **Kinésiologie**: `pt-20 pb-8 md:pt-0 md:pb-24` on carousel container
+- **Contact**: `mt-48 sm:mt-24 lg:mt-32`
+- **Nettoyage Énergétique**: `mt-28 sm:mt-10`
+- **Pourquoi**: `pt-20 sm:pt-24`
+- **Réflexologie**: Image height adjusted for mobile (`h-96` vs `sm:min-h-screen`)
 
 **Built with ❤️ for wellness practitioners who want a professional online presence**
 
