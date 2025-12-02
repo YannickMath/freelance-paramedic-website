@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# yarn (use npm only)
+yarn.lock
+.yarn/
+
 # testing
 /coverage
 

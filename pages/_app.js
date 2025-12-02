@@ -1,11 +1,8 @@
-import "@/styles/globals.css";
-import "tailwindcss/tailwind.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import CookieConsent from "../components/CookieConsent";
 import "../styles/globals.css";
-import { useState, useEffect } from "react";
 import Script from "next/script";
 
 

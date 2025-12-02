@@ -3,15 +3,46 @@ import { useState, useEffect } from 'react';
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
 
+  // Cookie consent expires after 12 months (GDPR best practice)
+  const CONSENT_EXPIRY_MONTHS = 12;
+
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
+    const consentData = localStorage.getItem('cookieConsent');
+
+    if (!consentData) {
       setShowBanner(true);
+    } else {
+      try {
+        const { consent, timestamp } = JSON.parse(consentData);
+        const now = Date.now();
+        const expiryDate = timestamp + (CONSENT_EXPIRY_MONTHS * 30 * 24 * 60 * 60 * 1000);
+
+        // Check if consent has expired
+        if (now > expiryDate) {
+          localStorage.removeItem('cookieConsent');
+          setShowBanner(true);
+        } else {
+          // Re-apply consent settings if still valid
+          if (consent === 'accepted' && window.gtag && process.env.NEXT_PUBLIC_GA_ID) {
+            window.gtag('consent', 'update', {
+              analytics_storage: 'granted'
+            });
+          }
+        }
+      } catch (e) {
+        // If parsing fails, clear old format and show banner
+        localStorage.removeItem('cookieConsent');
+        setShowBanner(true);
+      }
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    const consentData = {
+      consent: 'accepted',
+      timestamp: Date.now()
+    };
+    localStorage.setItem('cookieConsent', JSON.stringify(consentData));
     setShowBanner(false);
 
     // Enable Google Analytics if GA ID is configured
@@ -23,7 +54,11 @@ export default function CookieConsent() {
   };
 
   const rejectCookies = () => {
-    localStorage.setItem('cookieConsent', 'rejected');
+    const consentData = {
+      consent: 'rejected',
+      timestamp: Date.now()
+    };
+    localStorage.setItem('cookieConsent', JSON.stringify(consentData));
     setShowBanner(false);
 
     // Disable Google Analytics
