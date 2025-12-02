@@ -5,19 +5,17 @@ export default function MentionsLegales() {
           <div className=" mt-44 md:mt-32 sm:mt-24">
             <h1 className="font-bold mb-4 ">Mentions Légales</h1>
             <p className="mb-4">
-              Le présent site internet est la propriété de Muriel MATHIEU,
-              kinésiologue domiciliée au 45 Boulevard Général de Gaulle, Oullins
-              69600. Le site est édité par Yannick MATHIEU et hébergé par Google
+              Le présent site internet est la propriété de {process.env.NEXT_PUBLIC_OWNER_NAME},
+              kinésiologue domiciliée au {process.env.NEXT_PUBLIC_OWNER_ADDRESS}. Le site est édité par {process.env.NEXT_PUBLIC_EDITOR_NAME} et hébergé par Google
               Workspace.
             </p>
             <p className="mb-4 ">
               Le contenu de ce site internet est destiné à fournir des informations
-              générales sur la kinésiologie et les services proposés par Muriel
-              MATHIEU. Les informations fournies sur ce site ne sont pas destinées à
+              générales sur la kinésiologie et les services proposés par {process.env.NEXT_PUBLIC_BUSINESS_NAME}. Les informations fournies sur ce site ne sont pas destinées à
               remplacer une consultation médicale ou professionnelle qualifiée.
             </p>
             <p className="mb-4">
-              Muriel MATHIEU s'efforce de maintenir les informations sur ce site
+              {process.env.NEXT_PUBLIC_BUSINESS_NAME} s'efforce de maintenir les informations sur ce site
               internet à jour et exactes, mais ne peut garantir leur exhaustivité,
               leur actualité ou leur pertinence pour une utilisation particulière.
               L'utilisation de ce site est entièrement aux risques de l'utilisateur.
@@ -29,10 +27,10 @@ export default function MentionsLegales() {
             </p>
             <p className="mb-4">
               Pour toute question ou réclamation concernant ce site internet, vous
-              pouvez contacter Yanniick MATHIEU à l'adresse suivante : 71 rue Pré-Gaudry LYON 69007.
+              pouvez contacter {process.env.NEXT_PUBLIC_EDITOR_NAME} à l'adresse suivante : {process.env.NEXT_PUBLIC_EDITOR_ADDRESS}.
             </p>
           </div>
         </div>
       );
-      
+
 }

@@ -1,0 +1,11 @@
+# Robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages
+Disallow: /api/
+
+# Sitemap location
+# TODO: Replace yourdomain.com with your actual domain
+Sitemap: https://murielmathieu.fr/sitemap.xml

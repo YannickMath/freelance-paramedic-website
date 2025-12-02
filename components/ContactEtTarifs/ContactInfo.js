@@ -5,11 +5,11 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 export default function ContactInfo() {
   const infoPersonnel = {
-    nom: "Muriel MATHIEU",
-    adresse: "45 Boulevard Général de Gaulle, Oullins 69600",
+    nom: process.env.NEXT_PUBLIC_BUSINESS_NAME,
+    adresse: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS,
     activité: "Kinésiologie, Réflexologie cranio-sacrée, Nettoyage energétique",
-    email: "contact@murielmathieu.fr",
-    téléphone: "06 59 98 32 08 ",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+    téléphone: process.env.NEXT_PUBLIC_PHONE_NUMBER,
   };
 
   return (

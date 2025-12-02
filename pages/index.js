@@ -1,28 +1,17 @@
-
 import Accueil from "../components/Accueil"
-
-// import Script from "next/script"; 
-
+import SEO from "../components/SEO"
 
 export default function Home() {
   return (
-    <div style={{ height: "100vh" }}>
-       {/* <Script
-        src="
-https://www.googletagmanager.com/gtag/js?id=NEXT_PUBLIC_GA_ID
-"
-        strategy="afterInteractive"
+    <>
+      <SEO
+        title="Accueil"
+        description="Muriel MATHIEU, kinésiologue certifiée et praticienne en réflexologie cranio-sacrée à Oullins (69600). Découvrez mes services de kinésiologie, réflexologie et nettoyage énergétique."
+        keywords="kinésiologie Oullins, réflexologie cranio-sacrée Lyon, nettoyage énergétique, bien-être 69600"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'NEXT_PUBLIC_GA_ID');
-        `}
-      </Script>  */}
-      <Accueil />
-    </div>
+      <div style={{ height: "100vh" }}>
+        <Accueil />
+      </div>
+    </>
   );
 }
