@@ -3,7 +3,7 @@ import { AiFillInstagram } from "react-icons/ai";
 
 export default function SocialIcons() {
   return (
-    <div className="flex justify-center w-screen items-center">
+    <div className="flex justify-center w-full items-center">
       <div className="lg:flex-1 h-px border-b border-solid border-gray-400"></div>
 
       <a

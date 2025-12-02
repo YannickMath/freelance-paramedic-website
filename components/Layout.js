@@ -3,10 +3,10 @@ import StructuredData from "./StructuredData";
 
 export default function Layout({ children, isSmallScreen }) {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <StructuredData />
       <Menu currentPage="AproposDeMoi" isSmallScreen={isSmallScreen} />
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
     </div>
   );
 }

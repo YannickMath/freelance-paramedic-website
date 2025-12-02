@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 100vh;
+  min-height: calc(100vh - 6rem);
   width: 100vw;
-  margin-top: 10%;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
 }
 
 .circleContainer {

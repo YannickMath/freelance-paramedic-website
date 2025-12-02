@@ -37,12 +37,11 @@ export default function Kinesiologie({ isSmallScreen }) {
     const settings = {
       dots: true,
       customPaging: (i) => (
-        
         <div
           className=" lg:top-10 bottom-2 font-bold text-black font-roboto"
           style={{
-            color: activeSlide === i ? "white" : "black",
-            fontSize: activeSlide === i ? "25px" : "18px",
+            color: activeSlide === i ? "white" : "grey",
+            fontSize: activeSlide === i ? "30px" : "25px",
             textDecoration: activeSlide === i ? "underline" : "none",
             position: isSmallScreen && activeSlide === 1 ? "fixed" : "absolute",
           }}
@@ -63,52 +62,110 @@ export default function Kinesiologie({ isSmallScreen }) {
     };
 
     return (
-      <div className=" min-h-screen font-roboto   relative " ref={parentRef}>
-        <div className="flex flex-col justify-center  lg:mt-0 lg:ml-10 ml-2 lg:mr-10 mr-2">
+      <div className="min-h-screen font-roboto relative pt-20 pb-8 md:pt-0 md:pb-24" ref={parentRef}>
+        <div className="flex flex-col justify-center lg:mt-0 lg:ml-10 ml-2 lg:mr-10 mr-2">
           <Slider {...settings}>
             <div className={activeSlide === 0 ? "" : "hidden"}>
-              <div className="  lg:text-base flex-col space-y-4 lg:space-y-6 py-10 mt-40 sm:mt-20 md:mt-24 p-5 ">
-                <h3 className="text-center font-bold  text-xl underline text-[#333333]">
-                  C'est quoi la kinésiologie ?
-                </h3>
-                <p >{items.item1}</p>
-                <p>{items.item2}</p>
-                <p>{items.item3}</p>
-                <p>{items.item4}</p>
-                <p>{items.item5}</p>
+              <div className="flex-col space-y-5 md:space-y-6 lg:space-y-7 pt-28 pb-10 md:py-10 md:pt-10 mt-0 sm:mt-20 md:mt-24 max-w-5xl mx-auto px-6 md:px-10 lg:px-16">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
+                  <h3 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl text-primary-700 mb-6 animate-fade-in">
+                    C'est quoi la kinésiologie ?
+                  </h3>
+                  <div className="space-y-4 md:space-y-5 text-base md:text-lg leading-relaxed text-gray-800">
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.1s" }}
+                    >
+                      {items.item1}
+                    </p>
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.2s" }}
+                    >
+                      {items.item2}
+                    </p>
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.3s" }}
+                    >
+                      {items.item3}
+                    </p>
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.4s" }}
+                    >
+                      {items.item4}
+                    </p>
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.5s" }}
+                    >
+                      {items.item5}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className={activeSlide === 1 ? "" : "hidden"}>
-              <div className="h-full flex flex-col justify-center space-y-4  lg:space-y-6 py-10 md:mt-24 mt-40 sm:mt-20 text-[#333333] p-5 ">
-                <p className="text-center font-bold  text-xl underline ">
-                  {items.item6}
-                </p>
-                <p>
-                  <img
-                    className="mx-auto opacity-60"
-                    src={items.item7}
-                    alt="Test musculaire"
-                    style={{ borderRadius: "50% / 50%" }}
-                  />
-                </p>
-                <div className="md:flex-row justify-around space-y-4 lg:space-y-6">
-                  <p className="text-center md:text-xl flex-grow">
-                    {items.item8}
-                  </p>
-                  <p className="text-center md:text-xl flex-grow">
-                    {items.item9}
-                  </p>
+              <div className="h-full flex flex-col justify-center space-y-6 lg:space-y-8 pt-28 pb-10 md:py-10 md:pt-10 md:mt-24 mt-0 sm:mt-20 max-w-5xl mx-auto px-6 md:px-10 lg:px-16">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
+                  <h3 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl text-primary-700 mb-8 animate-fade-in">
+                    {items.item6}
+                  </h3>
+                  <div className="mb-8 animate-scale-in">
+                    <Image
+                      src={items.item7}
+                      alt="Test musculaire de kinésiologie"
+                      width={400}
+                      height={400}
+                      className="mx-auto rounded-full shadow-lg"
+                      style={{ opacity: 0.8 }}
+                    />
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6 text-center">
+                    <p
+                      className="text-lg md:text-xl italic font-medium text-primary-600 bg-primary-50 p-6 rounded-xl animate-slide-up"
+                      style={{ animationDelay: "0.2s" }}
+                    >
+                      {items.item8}
+                    </p>
+                    <p
+                      className="text-lg md:text-xl italic font-medium text-primary-600 bg-primary-50 p-6 rounded-xl animate-slide-up"
+                      style={{ animationDelay: "0.3s" }}
+                    >
+                      {items.item9}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
             <div className={activeSlide === 2 ? "" : "hidden"}>
-              <div className=" lg:text-base  flex flex-col justify-center space-y-4 lg:space-y-6 py-10 mt-40 md:mt-24 sm:mt-20 lg:mt-30 text-[#333333] p-5 ">
-                <h3 className="text-center font-bold text-xl underline ">
-                  Déroulé d'une séance
-                </h3>
-                <p>{items.item10}</p>
-                <p>{items.item11}</p>
-                <p>{items.item12}</p>
+              <div className="flex flex-col justify-center space-y-5 md:space-y-6 lg:space-y-7 pt-28 pb-10 md:py-10 md:pt-10 mt-0 md:mt-24 sm:mt-20 max-w-5xl mx-auto px-6 md:px-10 lg:px-16">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 lg:p-10">
+                  <h3 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl text-primary-700 mb-6 animate-fade-in">
+                    Déroulé d'une séance
+                  </h3>
+                  <div className="space-y-4 md:space-y-5 text-base md:text-lg leading-relaxed text-gray-800">
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.1s" }}
+                    >
+                      {items.item10}
+                    </p>
+                    <p
+                      className="animate-slide-up"
+                      style={{ animationDelay: "0.2s" }}
+                    >
+                      {items.item11}
+                    </p>
+                    <p
+                      className="text-sm md:text-base italic bg-secondary-50 p-4 rounded-lg border-l-4 border-primary-500 animate-slide-up"
+                      style={{ animationDelay: "0.3s" }}
+                    >
+                      {items.item12}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </Slider>
@@ -117,19 +174,22 @@ export default function Kinesiologie({ isSmallScreen }) {
     );
   };
   return (
-    <div className="min-h-screen lg:  relative">
-      <div className="opacity-40" style={{ minHeight: "calc(100% - 100px)" }}>
+    <div className="min-h-screen relative">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/fondkinesio.WebP"
-          alt="Image de fond"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          className=" mt-10 md:mt-10 opacity-80" // Cache l'image sur les écrans larges
-          loading="lazy"
+          alt="Kinésiologie - Image de fond"
+          fill
+          sizes="100vw"
+          quality={75}
+          priority
+          className="object-cover"
+          style={{ filter: "brightness(0.7) saturate(1.1)" }}
         />
       </div>
-      <Carousel items={wikipedia} />
+      <div className="relative z-10">
+        <Carousel items={wikipedia} />
+      </div>
     </div>
   );
 }

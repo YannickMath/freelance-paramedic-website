@@ -34,7 +34,7 @@ https://www.googletagmanager.com/gtag/js?id=NEXT_PUBLIC_GA_ID
           objectFit="cover"
           quality={100}
           className=" opacity-80"
-          style={{ filter: "brightness(60%)" }}
+          style={{ filter: "brightness(0.7) saturate(1.1)" }}
         />
       </div>
       <div className=" h-full">

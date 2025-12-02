@@ -4,8 +4,8 @@
   animation-duration: 1s;
   cursor: pointer;
   margin-right: 42px;
-  font-size: 1.6rem;
   text-align: center;
+  font-weight: 500;
 }
 
 .link:hover {
@@ -34,7 +34,6 @@
     font-size: 21px;
   }
 }
-
 
 @media (min-width: 769px) and (max-width: 849px) {
   .link {

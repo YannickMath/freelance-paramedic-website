@@ -19,7 +19,7 @@ export default function Menu({ isSmallScreen }) {
   const [isPortrait, setIsPortrait] = useState(false);
   const [isLandscape, setIsLandscape] = useState(false);
   const [showBurger, setShowBurger] = useState(false);
-  
+
   const toggleMenu = () => {
     if (isSmallScreen && isPortrait) {
       setMenuOpen(!menuOpen);
@@ -29,16 +29,16 @@ export default function Menu({ isSmallScreen }) {
       setMenuOpen(true);
     }
   };
-  
+
   const closeMenu = () => {
-    if(menuOpen) {
-      setMenuOpen(false)
-      if(!menuOpen) {
-        setMenuOpen(true)
+    if (menuOpen) {
+      setMenuOpen(false);
+      if (!menuOpen) {
+        setMenuOpen(true);
       }
     }
-  }
-  
+  };
+
   const handleSelectPage = (id) => {
     const newPageName = links[id];
     localStorage.setItem("nomPage", newPageName);
@@ -49,41 +49,47 @@ export default function Menu({ isSmallScreen }) {
       toggleMenu();
     }
   };
-  
-  
+
   useEffect(() => {
     const savedNomPage = localStorage.getItem("nomPage");
     if (savedNomPage) {
       setNomPage(savedNomPage);
     }
   }, []);
-  
+
   useEffect(() => {
     const handleOrientationChange = () => {
-      if (window.matchMedia("(orientation: portrait)").matches && isSmallScreen) {
+      if (
+        window.matchMedia("(orientation: portrait)").matches &&
+        isSmallScreen
+      ) {
         setShowBurger(true);
         setIsPortrait(true);
         setIsLandscape(false);
-      } else if (window.matchMedia("(orientation: landscape)").matches && isSmallScreen) {
+      } else if (
+        window.matchMedia("(orientation: landscape)").matches &&
+        isSmallScreen
+      ) {
         setShowBurger(false);
         setIsPortrait(false);
         setIsLandscape(true);
       }
     };
-  
+
     handleOrientationChange();
     window.addEventListener("orientationchange", handleOrientationChange);
-  
-    return () => window.removeEventListener("orientationchange", handleOrientationChange);
+
+    return () =>
+      window.removeEventListener("orientationchange", handleOrientationChange);
   }, [isSmallScreen]);
-  
+
   const getImageSrc = () => {
     if (isSmallScreen && nomPage === "A propos de moi") {
       return "/moi.WebP";
     }
     return "logo.png";
   };
-  
+
   return (
     <>
       <Head>
@@ -92,7 +98,7 @@ export default function Menu({ isSmallScreen }) {
         <title>Muriel MATHIEU Kinésiologie</title>
         <link rel="icon" href="/logo.png" type="image/x-icon" />
       </Head>
-      
+
       <div className="bg-green-50 lg:h-28 md:h-28 sm:h-20 p-2 text-gray-500 flex justify-around md:justify-around items-center font-semibold font-carattere fixed top-0 w-full z-50 ">
         <div
           className={`relative md:fixed md:top-0 md:left-0 md:ml-5 ${
@@ -109,13 +115,13 @@ export default function Menu({ isSmallScreen }) {
             }}
           />
         </div>
-  
+
         {isSmallScreen && isPortrait && (
           <div className="text-center font-medium ">
             <p className="text-gray-600 text-2xl mb-1 p-2 ">{nomPage}</p>
           </div>
         )}
-  
+
         {isSmallScreen && showBurger && (
           <button
             className="text-3xl md:hidden focus:outline-none mr-2 ml-2 relative"
@@ -124,13 +130,12 @@ export default function Menu({ isSmallScreen }) {
             &#9776;
           </button>
         )}
-  
+
         <div
           className={`${
             isSmallScreen ? (menuOpen ? "block" : "hidden") : "flex"
-          }  md:flex-row md:justify-around md:w-auto md:ml-64 mr-2 p-2 items-center font-medium text-gray-600`}
+          }  md:flex-row md:justify-around md:w-auto md:ml-64 mr-2 p-2 items-center text-gray-600`}
         >
-  
           <Link href="/Accueil">
             <p className={styles.link} onClick={() => handleSelectPage("id1")}>
               {links.id1}

@@ -5,17 +5,25 @@ import Tarifs from "./Tarifs";
 
 export default function Contact() {
   return (
-    <div className="flex flex-col h-full   lg:ml-0 md:mt-0 mt-8 ">
-      <div className="lg:flex flex-grow mt-36">
-        <div className="lg:w-1/2 lg:mt-8 md:ml-16  ">
-          <ContactInfo />
-          <Tarifs />
-        </div>
-        <div className="lg:w-1/2 mt-8 md:ml-24">
-          <FormContact />
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow mt-20 sm:mt-24 lg:mt-32 px-4 md:px-8 lg:px-12 max-w-7xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-8 animate-slide-up">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+              <ContactInfo />
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <Tarifs />
+            </div>
+          </div>
+          <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 sticky top-28">
+              <FormContact />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-5 lg:mt-4 w-1/4 mb-4 md:mb-2 lg:mb-0">
+      <div className="mt-8 mb-6 mx-auto animate-fade-in">
         <SocialIcons />
       </div>
     </div>
