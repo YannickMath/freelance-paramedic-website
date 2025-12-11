@@ -242,11 +242,13 @@
   }
 }
 
-.md:flex-row {
-  justify-content: center; /* centre horizontalement sur tailles écran plus larges */
-}
+@media (min-width: 768px) {
+  .flex-row {
+    justify-content: center; /* centre horizontalement sur tailles écran plus larges */
+  }
 
-/* Optionnel : ajouter une marge pour espacer les liens */
-.md:flex-row > * + * {
-  margin-left: 1rem;
+  /* Optionnel : ajouter une marge pour espacer les liens */
+  .flex-row > * + * {
+    margin-left: 1rem;
+  }
 }
