@@ -33,7 +33,7 @@ export default function Form() {
   
   // Input sanitization helper
   const sanitizeInput = (input) => {
-    return input.trim().replace(/[<>]/g, '');
+    return input.replace(/[<>]/g, '');
   };
 
   const validateEmail = (email) => {
@@ -114,12 +114,12 @@ export default function Form() {
     setIsSubmitting(true);
 
     const data = new FormData();
-    data.append("nom", sanitizeInput(formData.nom));
+    data.append("nom", sanitizeInput(formData.nom.trim()));
     data.append("soin", formData.soin);
-    data.append("téléphone", formData.téléphone);
-    data.append("email", formData.email);
-    data.append("objet", sanitizeInput(formData.objet));
-    data.append("message", sanitizeInput(formData.message));
+    data.append("téléphone", formData.téléphone.trim());
+    data.append("email", formData.email.trim());
+    data.append("objet", sanitizeInput(formData.objet.trim()));
+    data.append("message", sanitizeInput(formData.message.trim()));
     data.append("access_key", process.env.NEXT_PUBLIC_API_KEY);
 
     try {
